@@ -2,13 +2,13 @@ import * as vscode from 'vscode';
 
 // Define the steps in the TDD workflow
 const TDDSteps = [
-  { name: 'Unit Test', color: 'lime' },
-  { name: 'Implementation', color: 'aqua' },
-  { name: 'Refactoring', color: 'orchid' }
+  { name: 'Unit Test', color: vscode.workspace.getConfiguration().get<string>("tdd-testhelper.unitTestPhaseColor") },
+  { name: 'Implementation', color: vscode.workspace.getConfiguration().get<string>("tdd-testhelper.implementPhaseColor") },
+  { name: 'Refactoring', color: vscode.workspace.getConfiguration().get<string>("tdd-testhelper.refactorPhaseColor") }
 ];
 
 const OuterCycle = [
-  { name: 'Integration Test', color: 'orange' },
+  { name: 'Integration Test', color: vscode.workspace.getConfiguration().get<string>("tdd-testhelper.integrationTestPhaseColor") },
 ];
 
 
@@ -22,23 +22,24 @@ export function activate(context: vscode.ExtensionContext) {
   // Register the command to move to the next step
   context.subscriptions.push(vscode.commands.registerCommand('tddWorkflow.nextStep', () => {
     currentStep = (currentStep + 1) % TDDSteps.length;
-    updateBanner(TDDSteps[currentStep].name, TDDSteps[currentStep].color);
+      updateBanner(TDDSteps[currentStep].name, TDDSteps[currentStep].color ?? 'white');
+    
   }));
 
   context.subscriptions.push(vscode.commands.registerCommand('tddWorkflow.firstStep', () => {
-    updateBanner(OuterCycle[0].name, OuterCycle[0].color);
+    updateBanner(OuterCycle[0].name, OuterCycle[0].color ?? 'white');
     currentStep = -1;
   }));
 
   // Register the command to move to the previous step
   context.subscriptions.push(vscode.commands.registerCommand('tddWorkflow.previousStep', () => {
     currentStep = (currentStep - 1 + TDDSteps.length) % TDDSteps.length;
-    updateBanner(TDDSteps[currentStep].name, TDDSteps[currentStep].color);
+    updateBanner(TDDSteps[currentStep].name, TDDSteps[currentStep].color ?? 'white');
   }));
 
   // Show the initial banner
   currentStep = -1;
-  updateBanner(OuterCycle[0].name, OuterCycle[0].color);
+  updateBanner(OuterCycle[0].name, OuterCycle[0].color ?? 'white');
 }
 
 

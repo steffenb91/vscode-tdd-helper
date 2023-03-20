@@ -25,6 +25,34 @@
         "command": "tddWorkflow.previousStep",
         "title": "TDD Helper: Previous Phase"
       }
+    ],
+    "configuration" : [
+      {
+        "title": "Color Integration Test Phase",
+        "properties": {
+          "tdd-testhelper.integrationTestPhaseColor": {
+            "type": "string",
+            "default": "lightsalmon",
+            "description": "Color of the integration test phase"
+          },
+          "tdd-testhelper.unitTestPhaseColor": {
+            "type": "string",
+            "default": "lime",
+            "description": "Color of the unit test phase"
+          },
+          "tdd-testhelper.implementPhaseColor": {
+            "type": "string",
+            "default": "aqua",
+            "description": "Color of the implementation phase"
+          },
+          "tdd-testhelper.refactorPhaseColor": {
+            "type": "string",
+            "default": "orchid",
+            "description": "Color of the refactor phase"
+          }
+        }
+        
+      }
     ]
   },
   "scripts": {
