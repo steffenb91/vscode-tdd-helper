@@ -1,6 +1,6 @@
 # tdd-helper
 
-This is the README for your extension "tdd-helper". This extension helps you focus on Test-Driven-Development by showing you banners on top of your code editor. This way, you always know where in the TDD cycle you are currently.
+This extension helps you focus on Test-Driven-Development by showing you banners on top of your code editor. This way, you always know where in the TDD cycle you are currently.
 
 ## Features
 
