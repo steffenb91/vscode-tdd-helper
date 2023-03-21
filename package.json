@@ -1,6 +1,10 @@
 {
   "name": "tdd-helper",
   "displayName": "tdd-helper",
+  "repository": {
+    "url": "https://github.com/steffenb91/vscode-tdd-helper"
+  },
+  "publisher": "steffenboe",
   "description": "This is a simple extension helping you focusing on the TDD Workflow by simply showing a colored banner.",
   "version": "0.0.1",
   "engines": {
