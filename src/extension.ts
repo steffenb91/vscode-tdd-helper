@@ -47,6 +47,24 @@ function updateBanner(text: string, color: string) {
   banner.text = `TDD Phase: ${text}` + ` $(circle-filled)`;
   banner.color = color;
   banner.show();
+  showNotification(text);
+}
+
+function showNotification(text: string) {
+  vscode.window.withProgress({
+    location: vscode.ProgressLocation.Notification,
+    title: `Well done! You are in ${text} mode`,
+    cancellable: true
+  }, (progress) => {
+    progress.report({ increment: 100 });
+    const p = new Promise<void>(resolve => {
+      setTimeout(() => {
+        resolve();
+      }, 3000);
+    });
+
+    return p;
+  });
 }
 
 export function deactivate() {
