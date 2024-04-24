@@ -38,22 +38,22 @@
         "properties": {
           "tdd-testhelper.integrationTestPhaseColor": {
             "type": "string",
-            "default": "lightsalmon",
+            "default": "#ffa07a",
             "description": "Color of the integration test phase"
           },
           "tdd-testhelper.unitTestPhaseColor": {
             "type": "string",
-            "default": "lime",
+            "default": "#bfff00",
             "description": "Color of the unit test phase"
           },
           "tdd-testhelper.implementPhaseColor": {
             "type": "string",
-            "default": "aqua",
+            "default": "#05c3dd",
             "description": "Color of the implementation phase"
           },
           "tdd-testhelper.refactorPhaseColor": {
             "type": "string",
-            "default": "orchid",
+            "default": "#da70d6",
             "description": "Color of the refactor phase"
           }
         }
