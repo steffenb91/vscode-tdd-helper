@@ -5,8 +5,8 @@
     "url": "https://github.com/steffenb91/vscode-tdd-helper"
   },
   "publisher": "steffenboe",
-  "description": "This is a simple extension helping you focusing on the TDD Workflow by simply showing a colored banner.",
-  "version": "1.1.0",
+  "description": "This is a simple extension helping you focusing on the TDD Workflow by altering activity and statusbar color.",
+  "version": "1.2.0",
   "engines": {
     "vscode": "^1.76.2"
   },

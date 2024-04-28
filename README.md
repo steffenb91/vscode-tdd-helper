@@ -2,6 +2,7 @@
 
 This extension helps you focus on Test-Driven-Development by showing you a colored banner in the menubar. The banner indicates where you are in the TDD cycle. You can move from phase to phase using the `TDD Helper: Next Phase`-Command.
 
+![Screencast](docs/extension.gif)
 
 ## Features
 
@@ -30,6 +31,14 @@ You can configure the font colors of all phases:
 
 ## Release Notes
 
-### 0.0.1
+### 1.0.0
 
 Initial release of the vscode-tdd-helper.
+
+### 1.1.0
+
+Add notification banner.
+
+### 1.2.0
+
+Recolor menubar and statusbar.
