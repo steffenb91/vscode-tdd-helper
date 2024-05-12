@@ -6,7 +6,7 @@
   },
   "publisher": "steffenboe",
   "description": "This is a simple extension helping you focusing on the TDD Workflow by altering activity and statusbar color.",
-  "version": "1.2.0",
+  "version": "1.3.1",
   "engines": {
     "vscode": "^1.76.2"
   },
@@ -30,6 +30,10 @@
       {
         "command": "tddWorkflow.previousStep",
         "title": "TDD Helper: Previous Phase"
+      },
+      {
+        "command": "tddWorkflow.reset",
+        "title": "TDD Helper: Reset"
       }
     ],
     "configuration": [

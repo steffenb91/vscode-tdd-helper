@@ -32,13 +32,17 @@ You can configure the font colors of all phases:
 ## Release Notes
 
 ### 1.0.0
-
 Initial release of the vscode-tdd-helper.
 
 ### 1.1.0
-
 Add notification banner.
 
 ### 1.2.0
-
 Recolor menubar and statusbar.
+
+### 1.3.0
+Add Reset Command for resetting color customizations.
+
+### 1.3.1
+Resolves a small bug preventing correct color change when switching phases.
+

@@ -21,6 +21,7 @@ export function activate(context: vscode.ExtensionContext) {
     registerNextStepCommand(context);
     registerFirstStepCommand(context);
     registerPreviousStepCommand(context);
+    registerResetColorCommand(context);
 
     showInitialBanner();
 }
@@ -35,14 +36,18 @@ function registerPreviousStepCommand(context: vscode.ExtensionContext) {
 
 function registerFirstStepCommand(context: vscode.ExtensionContext) {
     context.subscriptions.push(vscode.commands.registerCommand('tddWorkflow.firstStep', () => {
-        updateBanner(OuterCycle[0].name, OuterCycle[0].color ?? '#ffffff');
-        currentStep = -1;
+        resetSteps();
     }));
+}
+
+function resetSteps() {
+    updateBanner(OuterCycle[0].name, OuterCycle[0].color ?? '#ffffff');
+    currentStep = -1;
 }
 
 function registerNextStepCommand(context: vscode.ExtensionContext) {
     context.subscriptions.push(vscode.commands.registerCommand('tddWorkflow.nextStep', () => {
-        currentStep = (currentStep + 1) % TDDSteps.length;
+        currentStep = (currentStep + 1 + TDDSteps.length) % TDDSteps.length;
         updateBanner(TDDSteps[currentStep].name, TDDSteps[currentStep].color ?? '#ffffff');
         updateActivityAndStatusBarColor(TDDSteps[currentStep].color ?? '#ffffff');
     }));
@@ -64,7 +69,7 @@ function updateActivityAndStatusBarColor(color: string) {
 
 function updateBanner(text: string, color: string) {
     banner.text = `TDD Phase: ${text}` + ` $(circle-filled)`;
-    banner.color = "black";
+    banner.color = 'black';
     banner.show();
     showNotification(text);
 }
@@ -91,4 +96,13 @@ export function deactivate() {
     banner.dispose();
     vscode.workspace.getConfiguration().update('workbench.colorCustomizations', undefined,
         vscode.ConfigurationTarget.Global);
+}
+
+function registerResetColorCommand(context: vscode.ExtensionContext) {
+    context.subscriptions.push(vscode.commands.registerCommand('tddWorkflow.reset', () => {
+        vscode.workspace.getConfiguration().update('workbench.colorCustomizations', undefined,
+            vscode.ConfigurationTarget.Global);
+        resetSteps();
+        banner.color = undefined;
+    }));
 }
